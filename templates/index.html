@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6">
+            <h1>在线人数：{{data.num}}</h1>
+        </div>
+        <div class="col-xs-6">
+            <h1>运行时间：{{data.data.uptime}}秒</h1>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 100px;">
+        <div class="col-xs-6">
+            <canvas id="line" class="chart chart-line" chart-data="avg_data" chart-labels="avg_labels" chart-series="avg_series" chart-options="avg_options" chart-dataset-override="avg_datasetOverride" chart-click="avg_onClick">
+            </canvas>
+            <div style="text-align: center">系统最近5-15分钟负载情况</div>
+        </div>
+        <div class="col-xs-6">
+            <canvas id="pie" class="chart chart-pie" chart-data="mem_data" chart-labels="mem_labels" chart-options="mem_options">
+            </canvas>
+            <div style="text-align: center">内存使用情况（总内存{{data.data.totalmem}}）</div>
+        </div>
+    </div>
+    <div class="row">
+        <!--<h1 ng-click="test()">测试</h1>-->
+    </div>
+    <a-great-eye></a-great-eye>
+    <toaster-container></toaster-container>
+</div>

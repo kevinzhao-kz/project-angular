@@ -1,0 +1,43 @@
+{
+  "name": "leason",
+  "version": "1.0.0",
+  "description": "test for angular and gulp and unit testing",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "angular-chart.js": "^1.1.1",
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-angular-templatecache": "^2.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-inject": "^4.2.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-strip-debug": "^1.1.0",
+    "gulp-uglify": "^3.0.0",
+    "jasmine": "^2.6.0",
+    "karma": "^1.7.0",
+    "karma-chrome-launcher": "^2.1.1",
+    "karma-cli": "^1.0.1",
+    "karma-jasmine": "^1.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leason00/angularSinglePage.git"
+  },
+  "keywords": [
+    "leason"
+  ],
+  "author": "leason",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leason00/angularSinglePage/issues"
+  },
+  "homepage": "https://github.com/leason00/angularSinglePage#readme"
+}
