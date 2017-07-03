@@ -263,7 +263,6 @@ sidebar
 	transform: rotate(90deg);
 }
 .link:hover{
-	/*background: #3C4A57;*/
 	color:#BDC6CD;
 }
 .link:hover,
@@ -271,28 +270,28 @@ sidebar
 li.li-selected .link{
 	color:#e8e8e8;
 }
-/*Submenu*/
- .submenu {
- 	display: none;
- 	background: #2C3845;
- 	font-size: 14px;
+/*Submenu1*/
+.submenu {
+    display: none;
+    background: #2C3845;
+    font-size: 14px;
     /*box-shadow: 0 1px 0  #15202b inset,0 -1px 0  #15202b inset;*/
- }
- .submenu a {
- 	display: block;
- 	color: #adb3b8;
- 	padding-left: 40px;
- }
- .submenu a:hover {
- 	background: #3C4A57;
- 	color: #e8e8e8;
- }
- .submenu li a i{
-	width:40px;
-	height: 50px;
-	line-height: 50px;
-	text-align: center;
- }
+}
+.submenu a {
+    display: block;
+    color: #adb3b8;
+    padding-left: 40px;
+}
+.submenu a:hover {
+    background: #3C4A57;
+    color: #e8e8e8;
+}
+.submenu li a i{
+    width:40px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
 
 
 
@@ -300,10 +299,7 @@ li.li-selected .link{
 main
  */
 .main{
-	position: relative;
-   	top:0;
-   	left:15%;
-   	width:85%;
+	margin-top: 80px;
 }
 /*header*/
 .header{
@@ -344,8 +340,11 @@ main
  	/*background: #fff;
 	border:1px solid #e8e8e8;*/
 }
-
-
+/*grid*/
+.tool-bar{
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
 
 
 /*内容开始*/
@@ -449,56 +448,5 @@ main
     height:1px;
     background: #e2e2e2;
 }
-/*用户管理*/
-.table .statu{
-    display: inline-block;
-    padding:1px 6px;
-    color:#fff;
-}
-.searchbox .input-group-addon{
-    cursor:pointer;
-}
-/*分页*/
-#pagination{
-    text-align: center;
-    -webkit-user-select:none;
-    -moz-user-select:none;
-    -o-user-select:none;
-    user-select:none;
-}
-.pagination a,.pagination span{
-    display: inline-block;
-    margin-right:3px;
-    padding:6px 16px;
-    background: #f5f5f5;
-    color:#777;
-    transition: 0s background;
-}
-.pagination a:hover,
-.pagination span:hover{
-    color:#00baef;
-}
-.pagination .current{
-    background:#00baef;
-    color:#fff;
-}
-.pagination .current:hover{
-    color:#fff;
-}
-.pagination .prev,
-.pagination .next{
-    background: #f1f1f1;
-    color:#777;
-}
 
-/*重启操作*/
-.restart-button{
-    padding:30px 50px;
-}
-.restart-button .btn{
-    margin-right: 30px;
-}
-/*设备序列号*/
-.panel-off{
-    color: rgb(222, 31, 31) !important;
-}
+

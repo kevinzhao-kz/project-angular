@@ -15,15 +15,6 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      // "libs/angular.min.js",
-      // "libs/angular-animate.js",
-      // "libs/angular-md5.min.js",
-      // "libs/angular-route.min.js",
-      // "libs/angular-ui-router.min.js",
-      // "libs/jquery-1.9.1.min.js",
-      // "libs/bootstrap.min.js",
-      // "libs/toaster.min.js",
-      // "libs/socket.io.min.js",
       "bower_components/angular/angular.js",
       "libs/socket.io.min.js",
       "node_modules/chart.js/dist/Chart.min.js",

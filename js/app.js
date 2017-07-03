@@ -1,17 +1,17 @@
 /**
- *
+ * app.js模块初始化
  * Created by leason on 2017/3/15.
  */
-var angularApp = angular.module('starter', ['ngRoute','ui.router','ngAnimate','starter.services','toaster','chart.js']);
+var angularApp = angular.module('starter', ['ngRoute','ui.router','ui.bootstrap','ngAnimate','starter.services','toaster','chart.js','harrie.mdeditor']);
 
-angularApp.config(['$routeProvider','$stateProvider','$urlRouterProvider',function($routeProvider,$stateProvider,$urlRouterProvider) {
-    // ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
-    $stateProvider
-        .state('index', {
-            url: '/index',
-            // abstract: true,
-            templateUrl: 'templates/index.html',
-            controller: 'indexCtrl'
-        });
-    $urlRouterProvider.otherwise('/index');
+angularApp.run(['$rootScope', function($rootScope){
+    $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
+        $rootScope.title = toState.views.main.title;
+    });
+    $rootScope.$on('$viewContentLoading', function(event, viewConfig){
+            // 获取任何视图设置的参数，以及一个特殊的属性：viewConfig.targetView
+    });
+    $rootScope.$on('$viewContentLoaded', function(event, viewConfig){
+        // 获取任何视图设置的参数，以及一个特殊的属性：viewConfig.targetView
+    });
 }]);

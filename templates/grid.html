@@ -1,0 +1,67 @@
+<style>
+    .page-list .pagination {float:left;}
+    .page-list .pagination span {cursor: pointer;}
+    .page-list .pagination .separate span{cursor: default; border-top:none;border-bottom:none;}
+    .page-list .pagination .separate span:hover {background: none;}
+    .page-list .page-total {float:left; margin: 25px 20px;}
+    .page-list .page-total input, .page-list .page-total select{height: 26px; border: 1px solid #ddd;}
+    .page-list .page-total input {width: 40px; padding-left:3px;}
+    .page-list .page-total select {width: 50px;}
+</style>
+<div class="row">
+    <div class="col-md-12">
+        <div class="tool-bar">
+            <div class="btn btn-default" ng-click="vm.edit()">编辑</div>
+            <div class="btn btn-default" ng-click="vm.delete()">删除</div>
+            <div class="btn btn-default" ng-click="vm.add()">添加</div>
+            <div class="btn btn-default" ng-click="vm.refresh()">刷新</div>
+        </div>
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th rowspan="2"><input type="checkbox" ng-model="vm.allChecked" ng-change="vm.checkAll(vm.allChecked)"/></th>
+                <th rowspan="2">姓名</th>
+                <th colspan="3">详情</th>
+                <th rowspan="2">操作</th>
+            </tr>
+            <tr>
+                <th>粉丝数</th>
+                <th>生日</th>
+                <th>收入(元)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in vm.items">
+                <td><input type="checkbox" ng-model="item.$checked"/></td>
+                <td>{{item.name}}</td>
+                <td class="text-right">{{item.followers|number}}</td>
+                <td>{{item.birthday|date}}</td>
+                <td class="text-right">{{item.income|currency}}</td>
+                <td class="dropdown">
+                <span class="btn btn-primary btn-xs dropdown-toggle" data-toggle="toggle" title="点此查看详情"><i
+                    class="glyphicon glyphicon-comment"></i></span>
+
+                    <div class="dropdown-menu panel-body">
+
+                        <h3>{{item.id}} - {{item.name}}</h3>
+                        粉丝：{{item.followers|number}}<br/>
+                        生日：{{item.birthday|date}}<br/>
+                        收入：{{item.income|currency}}
+
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="row">
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-9">
+                <tm-pagination conf="paginationConf"></tm-pagination>
+            </div>
+        </div>
+    </div>
+    <h1 ng-if="$state.includes('main.grid')">测试5</h1>
+</div>

@@ -1,0 +1,30 @@
+<div class="header">
+    <div class="short-icon">
+        <i class="fa fa-navicon"></i>
+    </div>
+    <div class="right-bar">
+        <span class="welcome">当前用户：<b>...</b> <button class="btn btn-info btn-xs"><i class="fa fa-sign-out"></i> 注销</button></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <div class="sidebar">
+            <div class="logo">
+                <span>{{appName}}</span>
+            </div>
+            <div class="sidenav">
+                <ul id="accordion" class="accordion">
+                    <li class="open" ng-repeat="sidebar in sidebars">
+                        <div class="link" ng-click="showSidebar(sidebar.firstName)"><i class="{{sidebar.icon}}"></i>{{sidebar.firstName}}<i class="fa fa-angle-right"></i></div>
+                        <ul ng-if="sidebar.firstName == chooseSidebar" class="container submenu" style="display:block;">
+                            <li ng-repeat="tab in sidebar.tabs" ng-class="{'li-selected': chooseTab == tab.url}" ng-click="barChange(tab.url)"><a href="{{tab.url}}"><i class="{{tab.icon}}"></i>{{tab.name}}</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-10 main" ui-view="main">
+
+    </div>
+</div>

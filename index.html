@@ -1,8 +1,8 @@
 <!doctype html>
-<html>
+<html ng-app="starter">
 <head>
     <meta charset="utf-8">
-    <title>leason</title>
+    <title ng-bind="title">1</title>
     <!--<base href="/">-->
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
     <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
@@ -13,41 +13,93 @@
     <meta content="telephone=no, address=no" name="format-detection">
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <!--md编辑器css-->
+    <link rel="stylesheet" href="bower_components/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="bower_components/codemirror/theme/mdn-like.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="bower_components/highlight/src/styles/monokai-sublime.css">
+    <!--<link rel="stylesheet" href="styles/mdeditor-default.css">-->
+
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-md5/angular-md5.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
     <script src="bower_components/AngularJS-Toaster/toaster.js"></script>
     <script src="libs/socket.io.min.js"></script>
     <script src="node_modules/chart.js/dist/Chart.min.js"></script>
     <script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
     <!--<script src="bower_components/angular-mocks/angular-mocks.js"></script>-->
     <!--<script src="bower_components/jasmine-core/lib/jasmine-core.js"></script>-->
+    <script src='bower_components/codemirror/lib/codemirror.js'></script>
+    <script src='bower_components/marked/lib/marked.js'></script>
+    <script src='bower_components/highlight/src/highlight.js'></script>
+    <script src="bower_components/angular-mdeditor/src/angular-mdeditor.js"></script>
     <!-- bower:css -->
+
+    <link rel="stylesheet" href="bower_components/AngularJS-Toaster/toaster.css">
+
+    <link rel="stylesheet" href="bower_components/codemirror/lib/codemirror.css">
+
     <!-- endinject -->
 
     <!-- inject:css -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/ngAnimate.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/toastr.min.css">
+    <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="css/lib/toastr.min.css">
+    <link rel="stylesheet" href="css/my/blog.css">
     <!-- endinject -->
 
     <!-- bower:js -->
+
+    <script src="bower_components/angular/angular.js"></script>
+
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+
+    <script src="bower_components/angular-route/angular-route.js"></script>
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+    <script src="bower_components/AngularJS-Toaster/toaster.js"></script>
+
+    <script src="bower_components/marked/lib/marked.js"></script>
+
+    <script src="bower_components/codemirror/lib/codemirror.js"></script>
+
+    <script src="bower_components/showdown/dist/showdown.js"></script>
+
+    <script src="bower_components/angular-md5/angular-md5.js"></script>
+
+    <script src="bower_components/angular-mdeditor/src/angular-mdeditor.js"></script>
+
     <!-- endinject -->
 
     <!-- inject:js -->
     <script src="js/app.js"></script>
-    <script src="js/servers.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/blogIndex/controllers.js"></script>
+    <script src="js/blogIndex/servers.js"></script>
     <script src="js/controller/controllers.js"></script>
+    <script src="js/login/controllers.js"></script>
+    <script src="js/login/servers.js"></script>
+    <script src="js/public/directive.js"></script>
+    <script src="js/public/filter.js"></script>
+    <script src="js/public/servers.js"></script>
     <!-- endinject -->
 </head>
 
-<body ng-app="starter">
-    <div ui-view></div>
-
+<body>
+    <div ui-view="index"></div>
+    <toaster-container></toaster-container>
 </body>
 </html>
