@@ -82,6 +82,14 @@ body{
     font-size: 16px;
     color: #777;
 }
+.main-nav ul li a:hover{
+    color:#333!important;
+    background:#fafafa;
+}
+.main-nav ul li.active a:hover{
+    background-color: #6bc30d;
+    color: #fff!important;
+}
 .main-sidebar{
     background-color: #fff;
 }
@@ -101,9 +109,13 @@ body{
     font-size: 22px;
     color: #565656;
 }
+.blog-scan span:hover{
+    color: #3498db;
+}
 .blog-scan p{
     height: 14px;
     line-height: 14px;
     font-size: 12px;
+    margin-top: 4px;
     color: #8b8b8b;
 }
