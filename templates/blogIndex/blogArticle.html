@@ -1,0 +1,60 @@
+<div class="main-content">
+    <h4 class="title-bar">文章详情</h4>
+    <header>
+        <h1 class="center">一个bootstrap+Vue.js购物车的练手小项目</h1>
+        <div class="note-info">
+            <div class="infos center">
+                <span>
+                    <a href="">admin </a><span>发布于2017年9月1日</span>
+                </span>
+                <em>浏览： <span>546</span></em>
+                <em>类型： <span><a href="">原创</a></span></em>
+                <em>分类： <span><a href="">JavaScript</a></span></em>
+                <span class="label label-success">作者原创</span>
+                <span ng-if="false" class="label label-default">作者转载</span>
+            </div>
+        </div>
+    </header>
+    <div class="article-content" ng-bind-html="text | markdown"></div>
+
+    <div class="tags-bar">
+        <span class="left">标签: </span>
+        <ul class="left">
+            <li class="left"><i class="fa fa-tag"></i> <a href=""> angular</a></li>
+            <li class="left"><i class="fa fa-tag"></i> <a href=""> vue.js</a></li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="share-btn">
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="praise-btn">
+                <a href="">
+                    <i class="fa fa-thumbs-up"></i>
+                    <b>给个赞</b>
+                    <em><span>4</span>人点赞</em>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>
+    <ul class="blog-prev-next">
+        <li class="blog-prev">
+            <a href="">
+                <em><i class="fa fa-chevron-left"></i> 上一篇</em>
+                <span>angularjs的使用方法</span>
+            </a>
+        </li>
+        <li class="blog-next">
+            <a href="">
+                <em>下一篇 <i class="fa fa-chevron-right"></i></em>
+                <span>angularjs的使用方法</span>
+            </a>
+        </li>
+    </ul>
+</div>

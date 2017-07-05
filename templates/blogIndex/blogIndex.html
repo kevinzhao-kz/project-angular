@@ -1,10 +1,10 @@
-<style>
-    .container{
-        width: 1700px;
-    }
-</style>
-<div class="container">
-    <div class="row">
+<!--<style>-->
+    <!--.container{-->
+        <!--width: 1700px;-->
+    <!--}-->
+<!--</style>-->
+<div class="container" style="width: 100%">
+    <div class="row blog-banner">
         <div class="col-md-4">
 
         </div>
@@ -37,7 +37,7 @@
         </div>
     </div>
 </div>
-<div class="container blog-main">
+<div class="container blog-main" style="width: 1700px;">
     <div class="row">
         <div class="main-nav">
             <ul>
@@ -63,9 +63,43 @@
                     <p>评论量</p>
                 </div>
             </div>
+            <div class="blog-list">
+                <h4 class="title-bar">文章分类</h4>
+                <ul class="blog-class">
+                    <li class="center"><a href="">学习笔记<span class="small">（13）</span></a></li>
+                    <li class="center"><a href="">学习笔记<span class="small">（13）</span></a></li>
+                    <li class="center"><a href="">学习笔记<span class="small">（13）</span></a></li>
+                    <li class="center"><a href="">学习笔记<span class="small">（13）</span></a></li>
+                    <li class="center"><a href="">学习笔记<span class="small">（13）</span></a></li>
+                </ul>
+            </div>
+            <div class="blog-list">
+                <h4 class="title-bar">热门标签</h4>
+                <ul class="blog-tag">
+                    <li><a href="">学习笔记</a></li>
+                    <li><a href="">学习笔记</a></li>
+                    <li><a href="">学习笔记</a></li>
+                    <li><a href="">学习笔记</a></li>
+                    <li><a href="">学习笔记</a></li>
+                </ul>
+            </div>
+            <div class="blog-list">
+                <h4 class="title-bar">文章存档</h4>
+                <ul class="blog-class">
+                    <li><a href="">2017年9月<span class="small">（13）</span></a></li>
+                    <li><a href="">2017年9月<span class="small">（13）</span></a></li>
+                    <li><a href="">2017年9月<span class="small">（13）</span></a></li>
+                    <li><a href="">2017年9月<span class="small">（13）</span></a></li>
+                    <li><a href="">2017年9月<span class="small">（13）</span></a></li>
+                </ul>
+            </div>
+
         </div>
-        <div class="col-md-10">
+        <div class="col-md-10 main-main" ui-view="blog">
 
         </div>
     </div>
 </div>
+<footer>
+    <p>Copyright © <a href="./">W3Cfuns.com</a> All Rights Reserved. <a href="http://www.miitbeian.gov.cn/" target="_blank" rel="nofollow">沪ICP16034444号-1</a></p>
+</footer>

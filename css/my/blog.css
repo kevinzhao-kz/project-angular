@@ -1,13 +1,56 @@
 body{
     background-color: #fafafa;
+    font: 12px/1.5 arial,verdana,Microsoft YaHei,Tahoma,Simsun,sans-serif;
+}
+a{
+    color: black;
+}
+a:hover{
+    color: #3498db;
+}
+li{
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+    font-style: normal;
+    font-size: 100%;
+}
+em{
+    font-style: normal;
+    font-size: 100%;
 }
 .center{
     text-align: center;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.small{
+    font-size: 12px;
+    color: #aaa;
+}
+h4.title-bar:before {
+    top: 5px;
+    width: 5px;
+    height: 20px;
+    background: #3498db;
+    display: block;
+    left: 0;
+    content: '';
+    position: absolute;
 }
 /*blog*/
 .top-bar{
     height: 320px;
     text-align: center;
+}
+.blog-banner{
+    background-image: url("../../img/banner.jpg");
 }
 .avatar{
     margin: 30px auto 20px;
@@ -118,4 +161,299 @@ body{
     font-size: 12px;
     margin-top: 4px;
     color: #8b8b8b;
+}
+.blog-list{
+    padding: 15px;
+    width: 100%;
+    background: #fff;
+    margin-top: 50px;
+}
+.blog-list h4{
+    text-align: initial;
+}
+.blog-class{
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.blog-class li{
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+.blog-tag li{
+    margin-top: 6px;
+    width: 33.33333333%;
+    float: left;
+    overflow: hidden;
+}
+.blog-tag li a{
+    display: block;
+    margin-left: 6px;
+    padding: 4px 6px;
+    height: 28px;
+    line-height: 20px;
+    font-size: 12px;
+    color: #777;
+    border-left: 1px #ededed solid;
+    background: #fafafa;
+    overflow: hidden;
+}
+.blog-tag li a:hover{
+    color: #fff;
+    background-color: #5cb85c;
+    border-left-color: #449d44;
+}
+/*main-main*/
+.main-main{
+
+}
+.main-content{
+    width: 100%;
+    background-color: #fff;
+    padding: 20px!important;
+    float: right;
+}
+.title-bar{
+    margin-bottom: 15px;
+    height: 30px;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 700;
+    text-indent: 10px;
+    position: relative;
+    border-bottom: 1px #ececec solid;
+    padding-bottom: 35px;
+}
+.note-info{
+    padding: 20px 0;
+    border-bottom: 1px #ececec solid;
+}
+.note-head{
+    min-height: 30px;
+    line-height: 30px;
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.note-head a{
+    font-size: 18px;
+    font-weight: 700;
+}
+.media-left{
+    margin-top: 4px;
+    padding: 0;
+    width: 160px;
+    left: 0;
+}
+.media-left img{
+    width: 160px;
+    height: 90px;
+    overflow: hidden;
+    border-radius: 6px;
+    vertical-align: middle;
+}
+.note-body{
+    margin: 0;
+    color: #888;
+    line-height: 24px;
+}
+.note-body p{
+    padding-left: 20px;
+    display: table-cell;
+    vertical-align: top;
+    margin: 0;
+    color: #888;
+    line-height: 24px;
+}
+.note-bottom{
+    display: block;
+    min-height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    color: #ccc;
+}
+.note-group span a{
+    margin-right: 25px;
+    display: block;
+    min-height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    color: #ccc;
+}
+.note-group span a:hover{
+    color: #3498db;
+}
+
+/*footer*/
+footer{
+    margin-top: 50px;
+    padding-bottom: 50px;
+}
+footer p {
+     margin: 0;
+     text-align: center;
+     color: #aaa;
+ }
+footer p a{
+    color: #aaa;
+}
+
+/*文章详情页面*/
+header .note-info{
+    margin-bottom: 10px;
+    height: 20px;
+    line-height: 20px;
+}
+.infos{
+    color: #aaa;
+}
+.infos span{
+    margin-right: 20px;
+}
+.infos a{
+    color: #aaa;
+}
+.infos em{
+    margin-right: 20px;
+}
+.infos a:hover{
+    color: #3498db;
+}
+.infos span.label{
+    padding: .2em 0.5em .2em;
+}
+.tags-bar{
+    margin: 50px 0;
+    padding-top: 10px;
+    height: 40px;
+    line-height: 30px;
+    border-top: 1px #eee solid;
+    overflow: hidden;
+    font-size: 14px;
+}
+.tags-bar ul{
+    margin-left: 10px;
+}
+.tags-bar ul li{
+    color: #aaa;
+    margin-right: 10px;
+    overflow: hidden;
+    float: left;
+}
+.tags-bar ul li a{
+    color: #aaa;
+}
+.tags-bar ul li a:hover{
+    color: #3498db;
+}
+/*.share-btn{*/
+    /*padding: 15px 0 15px 15px;*/
+    /*width: 235px;*/
+    /*border-radius: 100px;*/
+    /*background: #f3f4f7;*/
+    /*overflow: hidden;*/
+/*}*/
+.praise-btn{
+    color: #fff;
+    margin: 0 auto;
+    padding: 15px 30px 11px 65px;
+    width: 300px;
+    border-radius: 100px;
+    background: #e67e22;
+    position: relative;
+    height:65px;
+}
+.praise-btn a{
+    color: #fff;
+}
+.praise-btn:hover{
+    background-color: #e6913e;
+}
+.praise-btn em{
+    font-size: 16px;
+    margin-left: 30px;
+}
+.praise-btn{
+    font-size: 26px;
+}
+.blog-prev-next{
+    margin-top: 20px;
+}
+.blog-prev a em{
+    margin-right: 10px;
+    padding-right: 15px;
+    width: 90px;
+    text-align: right;
+    float: left;
+    background-position: 9px 8px;
+}
+.blog-next a em{
+    margin-left: 10px;
+    padding-left: 15px;
+    width: 90px;
+    text-align: left;
+    float: right;
+    background-position: 9px 8px;
+}
+.blog-prev-next li{
+    display: inline-block;
+    margin-bottom: 3px;
+    width: 50%;
+    height: 26px;
+    line-height: 26px;
+    list-style: none;
+    overflow: hidden;
+}
+.blog-prev-next li.blog-next{
+    text-align: right;
+    float: right;
+}
+.blog-prev-next li.blog-prev{
+    text-align: left;
+    float: left;
+}
+.blog-prev-next a em{
+    display: block;
+    height: 26px;
+    line-height: 26px;
+    font-size: 14px;
+    color: #fff;
+    background: #3498db;
+    position: relative;
+}
+.blog-prev-next li a span{
+    font-size: 16px;
+    color: #3498db;
+}
+
+/*编辑文章*/
+.tag-choose{
+    height: 34px;
+    border: 1px #ddd solid;
+    border-radius: 5px;
+    padding: 5px 5px;
+}
+.all-tag{
+    height: 80px;
+    border: 1px #ddd solid;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 10px 5px;
+}
+.all-tag span{
+    margin: 2px 3px;
+    display: inline-block;
+}
+.tag-choose span{
+    margin: 2px 3px;
+    display: inline-block;
+}
+.tag-choose span a{
+    color: #fff;
+}
+.all-tag span a{
+    color: #fff;
+}
+.tool-bar{
+    text-align: right;
 }

@@ -9,6 +9,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var stripDebug = require('gulp-strip-debug');
 var inject = require('gulp-inject');
 var sass = require('gulp-sass');
+var imagemin = require('gulp-imagemin');
 var bowerFiles = require('main-bower-files');
 
 var paths = {
@@ -52,44 +53,98 @@ gulp.task('template', function () {
 });
 
 //测试生产两种js压缩命令--生产gulp js --prod测试gulp js --dev
-gulp.task('js', function(type) {
+gulp.task('js',function(type) {
     console.log(type);
     if (type == 'dev') { // dev
         return gulp.src(paths.js)
-            .pipe(concat('all.js'))
+            .pipe(concat('allS.js'))
             .pipe(gulp.dest('./build'));
     } else { // prod
         return gulp.src(paths.js)
             .pipe(sourcemaps.init())
             .pipe(stripDebug())
             .pipe(uglify())
-            .pipe(concat('all.min.js'))
+            .pipe(concat('allS.min.js'))
             .pipe(sourcemaps.write())
             .pipe(gulp.dest('./build'));
     }
 });
 
+//build_lib_js压缩库文件js
+gulp.task('lib_js', function() {
+    var lib_js_paths = [
+        './bower_components/angular/angular.min.js',
+        './bower_components/angular-animate/angular-animate.min.js',
+        './bower_components/angular-md5/angular-md5.min.js',
+        './bower_components/angular-route/angular-route.min.js',
+        './bower_components/angular-ui-router/release/angular-ui-router.min.js',
+        './bower_components/jquery/dist/jquery.min.js',
+        './bower_components/angular-bootstrap/ui-bootstrap.min.js',
+        './bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+        './bower_components/AngularJS-Toaster/toaster.min.js',
+        './libs/socket.io.min.js',
+        './node_modules/chart.js/dist/Chart.min.js',
+        './node_modules/angular-chart.js/dist/angular-chart.min.js',
+        './bower_components/codemirror/lib/codemirror.js',
+        './bower_components/marked/lib/marked.js',
+        './bower_components/highlight/src/highlight.js',
+        './bower_components/angular-mdeditor/src/angular-mdeditor.min.js'
+    ];
+    return gulp.src(lib_js_paths)
+        .pipe(sourcemaps.init())
+        .pipe(concat('allLib.min.js'))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('./build'));
+});
+//build_lib_css压缩库文件css
+gulp.task('lib_css', function() {
+    var lib_css_paths = [
+        './bower_components/codemirror/lib/codemirror.css',
+        './bower_components/codemirror/theme/mdn-like.css',
+        './bower_components/font-awesome/css/font-awesome.css',
+        './bower_components/highlight/src/styles/monokai-sublime.css',
+        './bower_components/AngularJS-Toaster/toaster.css',
+        './bower_components/codemirror/lib/codemirror.css'
+    ];
+    return gulp.src(lib_css_paths)
+        .pipe(cssmin())
+        .pipe(concat('allLib.min.css'))
+        .pipe(gulp.dest('./build'));
+});
 //合并压缩css命令--gulp deployCSS
 var cssmin = require('gulp-cssmin');
-gulp.task('deployCSS', function() {
+gulp.task('deployCSS',function() {
     return gulp.src(paths.css)
         .pipe(cssmin())
-        .pipe(concat('all.css'))
+        .pipe(concat('allS.css'))
         .pipe(gulp.dest('./build'));
 });
 
+//压缩图片资源
+gulp.task('images', function () {
+    return gulp.src('./img/*.*')
+        .pipe(imagemin({
+            optimizationLevel: 5, //类型：Number  默认：3  取值范围：0-7（优化等级）
+            progressive: true, //类型：Boolean 默认：false 无损压缩jpg图片
+            interlaced: true, //类型：Boolean 默认：false 隔行扫描gif进行渲染
+            multipass: true //类型：Boolean 默认：false 多次优化svg直到完全优化
+        }))
+        .pipe(gulp.dest('./build/img'));
+});
+
 //dev资源引用命令--gulp devIndex
-gulp.task('devIndex', ['clean', 'jshint','sass'], function () {
+gulp.task('devIndex', ['jshint','sass','lib_js', 'lib_css','deployCSS'], function () {
     // It's not necessary to read the files (will speed up things), we're only after their paths:
     return gulp.src('./index.html')
         .pipe(inject(gulp.src(paths.js, {read: false}), {relative: true}))
         .pipe(inject(gulp.src(paths.css, {read: false}), {relative: true}))
+
         // .pipe(inject(gulp.src(bowerFiles(), {read: false}), {name: 'bower', relative: true}))
         .pipe(gulp.dest('./'));
 });
 
 //生产环境资源引用命令--gulp deployIndex
-gulp.task('deployIndex', ['clean', 'jshint', 'template', 'js', 'deployCSS'], function () {
+gulp.task('deployIndex', ['jshint', 'template', 'js', 'deployCSS','lib_js', 'lib_css'], function () {
     // It's not necessary to read the files (will speed up things), we're only after their paths:
     return gulp.src('./index.html')
         .pipe(inject(gulp.src(paths.buildjs, {read: false}), {relative: true}))
@@ -110,7 +165,7 @@ gulp.task('connect', function () {
 //watch任务，开启一个监控
 gulp.task('watch', function () {
     //监控数组中文件的修改，如果有修改则执行reload任务
-    gulp.watch(['scss/*.scss', 'index.html', 'js/*.js', 'templates/*/*.html', 'templates/*.html', 'js/*/*', 'css/*/*','css/*.css'], ['devIndex']);
+    gulp.watch(['scss/*.scss', 'index.html', 'templates/**/*.html', 'js/**/*.js', 'css/*/*','css/*.css'], ['deployIndex']);
 });
 
 gulp.task('default', ['connect', 'watch']);

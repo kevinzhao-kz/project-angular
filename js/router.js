@@ -87,6 +87,36 @@ angularApp.config(['$routeProvider','$stateProvider','$urlRouterProvider','$loca
                 }
             }
         })
+        .state('blogIndex.list', {
+            url: '/list',
+            views: {
+                'blog': {
+                    title:"blog list页面",
+                    templateUrl: 'templates/blogIndex/blogList.html',
+                    controller: 'blogListCtrl'
+                }
+            }
+        })
+        .state('blogIndex.article', {
+            url: '/article',
+            views: {
+                'blog': {
+                    title:"blog article页面",
+                    templateUrl: 'templates/blogIndex/blogArticle.html',
+                    controller: 'blogArticleCtrl'
+                }
+            }
+        })
+        .state('blogIndex.blogEdit', {
+            url: '/blogEdit',
+            views: {
+                'blog': {
+                    title:"blogEdit页面1",
+                    templateUrl: 'templates/manager/blogEdit.html',
+                    controller: 'blogEditCtrl'
+                }
+            }
+        })
         ;
-    $urlRouterProvider.otherwise('/main/index');
+    $urlRouterProvider.otherwise('/blogIndex/list');
 }]);

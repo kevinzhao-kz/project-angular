@@ -1,0 +1,160 @@
+<style>
+    .box{
+        width: 800px;
+        margin: 0 auto;
+    }
+
+    .mdeditor{
+        overflow: hidden;
+        width: 100%;
+        border: 1px solid #ddd;
+        box-sizing:border-box;
+        -webkit-box-sizing:border-box;
+        -moz-box-sizing:border-box;
+    }
+
+    .mdeditor-toolbar{
+        margin: 0 0;
+        padding: 0 0;
+        list-style: none;
+        overflow: hidden;
+        border-bottom: 1px solid #ddd;
+        background-color: #f5f5f5;
+    }
+
+    .mdeditor-toolbar-item{
+        float: left;
+        width: 40px;
+        line-height: 40px;
+        cursor: pointer;
+        text-align: center;
+        transition:background-color 0.3s;
+        -webkit-transition:background-color 0.3s;
+        -moz-transition:background-color 0.3s;
+    }
+    .mdeditor-toolbar-item:hover{background-color: #ddd;}
+    .mdeditor-toolbar-item:active{background-color: #ccc}
+    .mdeditor-toolbar-separator{
+        float: left;;
+        width: 40px;
+        line-height: 40px;
+        text-align: center;
+        color: #ccc;
+    }
+    /* .mdeditor-textarea{
+        border: none;
+        resize: none;
+        outline: none;
+        padding: 10px 10px;
+        background-color: #f5f5f5;
+        font-size: 16px;
+        color: #333;
+    }
+
+    .mdeditor-preview{
+        padding: 30px;
+        background-color: white;
+    }
+    .mdeditor-textarea,.mdeditor-preview{
+        overflow-y: scroll;
+        width: 100%;
+        font-family: '微软雅黑';
+        box-sizing:border-box;
+        -webkit-box-sizing:border-box;
+        -moz-box-sizing:border-box;
+    } */
+    .mdeditor-textarea,.mdeditor-preview{
+        height: 300px;
+        /* font-family: Consolas,'为微软雅黑'; */
+    }
+    .mdeditor-preview{
+        overflow-y:scroll;
+    }
+    :fullscreen{height: 100% !important;}
+    :full-screen{height: 100% !important;}
+    :-webkit-full-screen{height: 100% !important;}
+    :-moz-full-screen{height: 100% !important;}
+    :-ms-fullscreen{height: 100% !important;}
+</style>
+<div class="main-content">
+    <h4 class="title-bar">编辑文章</h4>
+    <div class="tool-bar">
+        <div class="btn btn-primary">发布</div>
+    </div>
+    <form role="form" class="form-horizontal">
+        <div class="form-group">
+            <div class="col-sm-12">
+                <input class="form-control input-lg" type="text" placeholder="请输入文章标题">
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-sm-6">
+                <select class="form-control">
+                    <option>请选择文章分类</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <a href="" class="btn btn-default">新增分类</a>
+            </div>
+            <div class="col-sm-5">
+                <select class="form-control">
+                    <option>请选择文章类型</option>
+                    <option>转载</option>
+                    <option>原创</option>
+                    <option>翻译</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-6">
+                <div class="tag-choose">
+                    <span class="label label-default"><a href=""> 默认标签 <i class="fa fa-times"></i></a></span>
+                </div>
+                <div class="all-tag">
+                    <span class="label label-default"><a href=""> 默认标签 <i class="fa fa-plus"></i></a></span>
+                    <span class="label label-primary"><a href=""> 默认标签 <i class="fa fa-plus"></i></a></span>
+                    <span class="label label-success"><a href=""> 默认标签 <i class="fa fa-plus"></i></a></span>
+                    <span class="label label-info"><a href=""> 默认标签 <i class="fa fa-plus"></i></a></span>
+                    <span class="label label-danger"><a href=""> 默认标签 <i class="fa fa-plus"></i></a></span>
+                    <span class="label label-default"><a href=""> 默认标签 <i class="fa fa-plus"></i></a></span>
+                    <span class="label label-primary"><a href=""> 默认标签 <i class="fa fa-plus"></i></a></span>
+                    <span class="label label-success"><a href=""> 默认标签 <i class="fa fa-plus"></i></a></span>
+                    <span class="label label-info"><a href=""> 默认标签 <i class="fa fa-plus"></i></a></span>
+                    <span class="label label-warning"><a href=""> 默认标签 <i class="fa fa-plus"></i></a></span>
+                    <span class="label label-danger"><a href=""> 默认标签 <i class="fa fa-plus"></i></a></span>
+                </div>
+            </div>
+            <div class="col-sm-1">
+                <button class="btn btn-default" ng-click="aaa()">新增标签</button>
+            </div>
+            <div class="col-sm-5">
+                <input class="form-control" type="text" placeholder="新增标签">
+            </div>
+
+        </div>
+    </form>
+    <mdeditor text="text" toolbar='toolbar' theme='default' class-names='classNames' shortcut='shortcut'></mdeditor>
+</div>
+
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <ul>
+            <li ng-repeat="item in items">
+                <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
+            </li>
+        </ul>
+        Selected: <b>{{selected.item }}</b>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
