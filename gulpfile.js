@@ -84,11 +84,7 @@ gulp.task('lib_js', function() {
         './bower_components/AngularJS-Toaster/toaster.min.js',
         './libs/socket.io.min.js',
         './node_modules/chart.js/dist/Chart.min.js',
-        './node_modules/angular-chart.js/dist/angular-chart.min.js',
-        './bower_components/codemirror/lib/codemirror.js',
-        './bower_components/marked/lib/marked.js',
-        './bower_components/highlight/src/highlight.js',
-        './bower_components/angular-mdeditor/src/angular-mdeditor.min.js'
+        './node_modules/angular-chart.js/dist/angular-chart.min.js'
     ];
     return gulp.src(lib_js_paths)
         .pipe(sourcemaps.init())
@@ -99,12 +95,8 @@ gulp.task('lib_js', function() {
 //build_lib_css压缩库文件css
 gulp.task('lib_css', function() {
     var lib_css_paths = [
-        './bower_components/codemirror/lib/codemirror.css',
-        './bower_components/codemirror/theme/mdn-like.css',
         './bower_components/font-awesome/css/font-awesome.css',
-        './bower_components/highlight/src/styles/monokai-sublime.css',
-        './bower_components/AngularJS-Toaster/toaster.css',
-        './bower_components/codemirror/lib/codemirror.css'
+        './bower_components/AngularJS-Toaster/toaster.css'
     ];
     return gulp.src(lib_css_paths)
         .pipe(cssmin())

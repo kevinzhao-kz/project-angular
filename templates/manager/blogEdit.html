@@ -79,18 +79,18 @@
 <div class="main-content">
     <h4 class="title-bar">编辑文章</h4>
     <div class="tool-bar">
-        <div class="btn btn-primary">发布</div>
+        <div class="btn btn-primary" ng-click="addBlog()">发布</div>
     </div>
     <form role="form" class="form-horizontal">
         <div class="form-group">
             <div class="col-sm-12">
-                <input class="form-control input-lg" type="text" placeholder="请输入文章标题">
+                <input class="form-control input-lg" type="text" placeholder="请输入文章标题" ng-model="blogEdit.title">
             </div>
 
         </div>
         <div class="form-group">
             <div class="col-sm-6">
-                <select class="form-control">
+                <select class="form-control" ng-model="blogEdit.class">
                     <option>请选择文章分类</option>
                     <option>2</option>
                     <option>3</option>
@@ -99,10 +99,10 @@
                 </select>
             </div>
             <div class="col-sm-1">
-                <a href="" class="btn btn-default">新增分类</a>
+                <a href="" class="btn btn-default" ng-click="addInfo(0)">新增分类</a>
             </div>
             <div class="col-sm-5">
-                <select class="form-control">
+                <select class="form-control" ng-model="blogEdit.type">
                     <option>请选择文章类型</option>
                     <option>转载</option>
                     <option>原创</option>
@@ -130,31 +130,30 @@
                 </div>
             </div>
             <div class="col-sm-1">
-                <button class="btn btn-default" ng-click="aaa()">新增标签</button>
+                <button class="btn btn-default" ng-click="addInfo(1)">新增标签</button>
             </div>
             <div class="col-sm-5">
-                <input class="form-control" type="text" placeholder="新增标签">
+                <!--<input class="form-control" type="text" placeholder="新增标签">-->
+                <textarea  ng-model="blogEdit.introduction" name="" id="" style="width: 100%; height: 123px; font-size: 14px; border-radius: 3px;" placeholder="文章简介"></textarea>
             </div>
 
         </div>
     </form>
-    <mdeditor text="text" toolbar='toolbar' theme='default' class-names='classNames' shortcut='shortcut'></mdeditor>
+    <!--<mdeditor text="text" toolbar='toolbar' theme='default' class-names='classNames' shortcut='shortcut'></mdeditor>-->
 </div>
+<toaster-container></toaster-container>
 
 <script type="text/ng-template" id="myModalContent.html">
     <div class="modal-header">
-        <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+        <h3 class="modal-title" id="modal-title">新增{{title}}</h3>
     </div>
     <div class="modal-body" id="modal-body">
-        <ul>
-            <li ng-repeat="item in items">
-                <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
-            </li>
-        </ul>
-        Selected: <b>{{selected.item }}</b>
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="{{title}}" ng-model="modal.inputValue">
+        </div>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        <button class="btn btn-primary" type="button" ng-click="ok()">提交</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">取消</button>
     </div>
 </script>

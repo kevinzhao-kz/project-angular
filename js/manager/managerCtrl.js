@@ -2,45 +2,56 @@
  * manager模块controllers
  * Created by leason on 2017/7/3.
  */
-angularApp.controller('blogEditCtrl', ['$scope','$uibModal',function($scope,$uibModal) {
-    console.log('测试');
-    alert('aaa');
-    $scope.items = ['item1', 'item2', 'item3'];
-
-    $scope.aaa = function (size) {
-        alert('bbb');
-        console.log('sdsds');
+angularApp.controller('blogEditCtrl', ['$scope','$uibModal','ajaxServe',function($scope,$uibModal,ajaxServe) {
+    $scope.blogEdit = $scope;
+    $scope.addInfo = function (e) {
+        var type;
+        console.log(e);
+        if( e == 1){
+            type = '分类';
+        }else if(e == 0){
+            type = '标签';
+        }
         var modalInstance = $uibModal.open({
             templateUrl: 'myModalContent.html',
             controller: 'ModalInstanceCtrl',
             backdrop: "static",
-            size: size,
+            size: '',
             resolve: {
-                items: function () {
-                    return $scope.items;
+                inputData: function () {
+                    return type;
                 }
             }
         });
-
-        modalInstance.result.then(function (selectedItem) {
-            $scope.selected = selectedItem;
+        modalInstance.result.then(function (inputValue) {
+            console.log(inputValue);
+            $scope.inputValue = inputValue;
         }, function () {
-            $log.info('Modal dismissed at: ' + new Date());
+            console.log('aaa');
         });
     };
 
-    $scope.toggleAnimation = function () {
-        $scope.animationsEnabled = !$scope.animationsEnabled;
+    $scope.addBlog = function () {
+        var action = 'addBlog';
+        var data = {
+            title:$scope.blogEdit.title,
+            class:$scope.blogEdit.class,
+            type:$scope.blogEdit.type,
+            tags:$scope.blogEdit.tags,
+            text:$scope.text,
+            introduction:$scope.blogEdit.introduction
+        };
+        console.log(data);
+        ajaxServe.pubAjax(data,action,function () {
+
+        });
     };
 }]);
-angularApp.controller('ModalInstanceCtrl', ['$scope','$uibModalInstance','items',function($scope,$uibModalInstance,items) {
-    $scope.items = items;
-    $scope.selected = {
-        item: $scope.items[0]
-    };
-
+angularApp.controller('ModalInstanceCtrl', ['$scope','$uibModalInstance','inputData',function($scope,$uibModalInstance,inputData) {
+    $scope.modal = $scope;
+    $scope.title = inputData;
     $scope.ok = function () {
-        $uibModalInstance.close($scope.selected.item);
+        $uibModalInstance.close($scope.modal.inputValue);
     };
 
     $scope.cancel = function () {

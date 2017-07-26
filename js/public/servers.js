@@ -5,19 +5,19 @@
 angular.module('starter.services', [])
 .factory('ajaxServe',['$http', function($http) {
     return {
-        pubAjax:function(opr,data,action,callback){
+        pubAjax:function(data,action,callback){
             $http({
-                // url:IP+action,
-                url:'json/test.json',
-                method:'get',
+                url:'http://127.0.0.1:3000/'+action,
+                // url:'json/test.json',
+                method:'post',
                 dataType: 'json',
-                ContentType:'application/x-www-form-urlencoded',
+                ContentType:'application/json',
                 data:{
-                    "opr":opr,
                     "data":data
                 }
             }).success(function(data){
                 if(data.status == "0"){
+                    alert('操作成功');
                     return callback(data);
                 }else{
                     alert('操作失败');
