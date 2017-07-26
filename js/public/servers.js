@@ -28,20 +28,6 @@ angular.module('starter.services', [])
         }
     };
 }])
-.factory('webSocketServe',[function() {
-    return {
-        webSocket:function(callback){
-            var socketList = io('ws://localhost:3000/manager');
-            // var socketList = io('ws://10.10.61.26:443/manager');
-            socketList.on('connected', function (data) {
-                socketList.emit('login', {name: 'leason',ssid:'15133',appkey:'leason'});
-            });
-            socketList.on('info', function (data) {
-                callback(data);
-            });
-        }
-    };
-}])
 .factory('notesFactory', [function() {
     return {
         put: function(note) {

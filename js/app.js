@@ -2,7 +2,7 @@
  * app.js模块初始化
  * Created by leason on 2017/3/15.
  */
-var angularApp = angular.module('starter', ['ngRoute','ui.router','ui.bootstrap','ui.bootstrap.tpls','ngAnimate','starter.services','toaster','chart.js']);
+var angularApp = angular.module('starter', ['ngRoute','ui.router','ui.bootstrap','ui.bootstrap.tpls','ngAnimate','starter.services','toaster']);
 
 angularApp.run(['$rootScope', function($rootScope){
     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){

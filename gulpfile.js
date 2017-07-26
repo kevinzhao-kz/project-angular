@@ -81,10 +81,7 @@ gulp.task('lib_js', function() {
         './bower_components/jquery/dist/jquery.min.js',
         './bower_components/angular-bootstrap/ui-bootstrap.min.js',
         './bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
-        './bower_components/AngularJS-Toaster/toaster.min.js',
-        './libs/socket.io.min.js',
-        './node_modules/chart.js/dist/Chart.min.js',
-        './node_modules/angular-chart.js/dist/angular-chart.min.js'
+        './bower_components/AngularJS-Toaster/toaster.min.js'
     ];
     return gulp.src(lib_js_paths)
         .pipe(sourcemaps.init())
@@ -95,6 +92,7 @@ gulp.task('lib_js', function() {
 //build_lib_css压缩库文件css
 gulp.task('lib_css', function() {
     var lib_css_paths = [
+        './bower_components/bootstrap/dist/css/bootstrap.min.css',
         './bower_components/font-awesome/css/font-awesome.css',
         './bower_components/AngularJS-Toaster/toaster.css'
     ];

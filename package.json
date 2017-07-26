@@ -4,8 +4,6 @@
   "description": "test for angular and gulp and unit testing",
   "main": "gulpfile.js",
   "dependencies": {
-    "angular-chart.js": "^1.1.1",
-    "gulp": "^3.9.1"
   },
   "devDependencies": {
     "del": "^2.2.2",
