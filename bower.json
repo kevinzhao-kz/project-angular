@@ -25,7 +25,9 @@
     "angular-route": "^1.6.4",
     "jquery": "^3.2.1",
     "bootstrap": "^3.3.7",
-    "AngularJS-Toaster": "toaster#^2.1.0"
+    "AngularJS-Toaster": "toaster#^2.1.0",
+    "angular": "^1.6.5",
+    "angular-bootstrap": "^2.5.0"
   },
   "devDependencies": {
     "jasmine-core": "jasmine#^2.6.3"
