@@ -155,7 +155,7 @@ gulp.task('connect', function () {
 //watch任务，开启一个监控
 gulp.task('watch', function () {
     //监控数组中文件的修改，如果有修改则执行reload任务
-    gulp.watch(['scss/*.scss', 'index.html', 'templates/**/*.html', 'js/**/*.js', 'css/*/*','css/*.css'], ['deployIndex']);
+    gulp.watch(['scss/*.scss', 'index.html', 'templates/**/*.html', 'js/**/*.js', 'css/*/*','css/*.css'], ['devIndex']);
 });
 
 gulp.task('default', ['connect', 'watch']);
