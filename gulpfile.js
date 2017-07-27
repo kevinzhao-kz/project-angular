@@ -32,7 +32,7 @@ gulp.task('jshint', function () {
 var del = require('del');
 gulp.task('clean', function() {
     // 清除build文件夹和templates.js文件
-    return del(['./build', paths.templates]);
+    return del([paths.templates]);
 });
 
 //sass任务，执行编译sass任务
@@ -48,7 +48,10 @@ gulp.task('sass',function () {
 var templateCache = require('gulp-angular-templatecache');
 gulp.task('template', function () {
     return gulp.src(['./templates/**/*.html','./templates/*.html'])
-        .pipe(templateCache({module: 'templates'}))
+        .pipe(templateCache({
+          root: 'templates/',
+          module: 'starter'
+        }))
         .pipe(gulp.dest('./js'))
 });
 
@@ -123,7 +126,7 @@ gulp.task('images', function () {
 });
 
 //dev资源引用命令--gulp devIndex
-gulp.task('devIndex', ['jshint','sass','lib_js', 'lib_css','deployCSS'], function () {
+gulp.task('devIndex', ['clean','jshint','sass','lib_js', 'lib_css','deployCSS'], function () {
     // It's not necessary to read the files (will speed up things), we're only after their paths:
     return gulp.src('./index.html')
         .pipe(inject(gulp.src(paths.js, {read: false}), {relative: true}))
