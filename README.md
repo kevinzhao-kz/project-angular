@@ -12,7 +12,7 @@ npm install
 $ git clone https://github.com/leason00/project-angular.git
 ```
 
-### oprate
+### operate
 
 ``` bash
 //开启服务器并监控文件变化
